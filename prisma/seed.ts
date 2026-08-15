@@ -32,7 +32,24 @@ async function main() {
     ],
   });
 
-  console.log("Services seeded successfully.");
+  await prisma.photo.createMany({
+    data: [
+      {
+        url: "https://dtudrytofqumvriswekz.supabase.co/storage/v1/object/public/photos/Pishina.PNG",
+        category: "HIDROIZOLIM",
+        caption: "Pool waterproofing project",
+        order: 1,
+      },
+      {
+        url: "https://dtudrytofqumvriswekz.supabase.co/storage/v1/object/public/photos/Pishina%20shkallet%20edit.PNG",
+        category: "HIDROIZOLIM",
+        caption: "Pool stairs waterproofing detail",
+        order: 2,
+      },
+    ],
+  });
+
+  console.log("Services and photos seeded successfully.");
 }
 
 main()
