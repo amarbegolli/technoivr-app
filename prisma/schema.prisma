@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum PhotoCategory {
+  HIDROIZOLIM
+  STIRODUR
+  PLLAKA_DISTANCERA
+  ZHAVOR
+}
+
+model Photo {
+  id          String        @id @default(cuid())
+  url         String
+  category    PhotoCategory
+  caption     String?
+  order       Int           @default(0)
+  createdAt   DateTime      @default(now())
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String?
+  email     String?
+  content   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model Material {
+  id          String   @id @default(cuid())
+  name        String
+  brand       String?
+  description String?
+  imageUrl    String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
