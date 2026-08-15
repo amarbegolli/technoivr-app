@@ -49,7 +49,42 @@ async function main() {
     ],
   });
 
-  console.log("Services and photos seeded successfully.");
+  await prisma.material.createMany({
+    data: [
+      {
+        name: "PVC Waterproofing Membrane",
+        brand: "Sika",
+        description: "High-durability PVC waterproofing membrane, resistant to UV and weathering.",
+        order: 1,
+      },
+      {
+        name: "PVC Waterproofing Membrane",
+        brand: "Bauder",
+        description: "Premium PVC waterproofing membrane for long-term protection against water damage.",
+        order: 2,
+      },
+      {
+        name: "Styrofoam Insulation Panels",
+        brand: "Generic",
+        description: "High-density expanded polystyrene panels for thermal insulation.",
+        order: 3,
+      },
+      {
+        name: "Drainage Spacer Tiles",
+        brand: "Generic",
+        description: "Elevated spacer tiles allowing proper water drainage beneath the surface.",
+        order: 4,
+      },
+      {
+        name: "Washed River Gravel",
+        brand: "Local Supplier",
+        description: "Clean, rounded gravel used as a protective top layer over waterproofing.",
+        order: 5,
+      },
+    ],
+  });
+
+  console.log("Services, photos, and materials seeded successfully.");
 }
 
 main()
