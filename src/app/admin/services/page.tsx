@@ -14,8 +14,7 @@ export default async function AdminServicesPage() {
 
       <form
         action={addService}
-        className="border border-gray-200 rounded-xl p-6 mb-10 space-y-4"
-      >
+        className="border border-gray-200 rounded-xl p-6 mb-10 space-y-4 bg-gray-50/50"      >
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
             Title *

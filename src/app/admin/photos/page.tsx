@@ -15,7 +15,7 @@ export default async function AdminPhotosPage() {
       {/* Upload form */}
       <form
         action={uploadPhoto}
-        className="border border-gray-200 rounded-xl p-6 mb-10 space-y-4"
+        className="border border-gray-200 rounded-xl p-6 mb-10 space-y-4 bg-gray-50/50"
       >
         <div>
           <label htmlFor="file" className="block text-sm font-medium text-gray-700 mb-1">
@@ -62,7 +62,7 @@ export default async function AdminPhotosPage() {
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition"
+          className="bg-primary text-white px-6 py-2.5 rounded-lg font-medium hover:bg-primary-light transition"
         >
           Upload Photo
         </button>
