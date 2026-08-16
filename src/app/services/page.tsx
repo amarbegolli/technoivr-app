@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
+export const revalidate = 3600;
+
 export default async function ServicesPage() {
   const services = await prisma.service.findMany({
     orderBy: { order: "asc" },
