@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import GalleryGrid from "@/components/sections/GalleryGrid";
 
 export default async function GalleryPage() {
   const photos = await prisma.photo.findMany({
@@ -16,26 +17,7 @@ export default async function GalleryPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {photos.map((photo) => (
-          <div
-            key={photo.id}
-            className="rounded-xl overflow-hidden border border-gray-200 hover:shadow-md transition"
-          >
-            <img
-              src={photo.url}
-              alt={photo.caption ?? "Project photo"}
-              className="w-full h-64 object-cover"
-            />
-            {photo.caption && (
-              <div className="p-4">
-                <p className="text-gray-700 text-sm">{photo.caption}</p>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
+      <GalleryGrid photos={photos} />
       {photos.length === 0 && (
         <p className="text-center text-gray-500">No photos yet.</p>
       )}

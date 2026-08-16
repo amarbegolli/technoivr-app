@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -25,9 +26,18 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-bold text-lg mb-3">Contact</h3>
           <ul className="space-y-2 text-sm">
-            <li>📞 +383 44 474 170</li>
-            <li>✉️ info@technoivr.com</li>
-            <li>📍 Prishtina, Kosovo</li>
+            <li className="flex items-center gap-2">
+              <FaPhone className="text-primary-light" size={14} />
+              +383 44 474 170
+            </li>
+            <li className="flex items-center gap-2">
+              <FaEnvelope className="text-primary-light" size={14} />
+              info@technoivr.com
+            </li>
+            <li className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-primary-light" size={14} />
+              Prishtina, Kosovo
+            </li>
           </ul>
         </div>
       </div>
