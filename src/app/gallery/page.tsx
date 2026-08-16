@@ -7,7 +7,7 @@ export default async function GalleryPage() {
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-20">
-      <div className="text-center mb-14">
+      <div className="text-center mb-14 bg-gradient-to-b from-blue-100 to-white -mx-4 px-4 pt-10 pb-6 rounded-b-2xl">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           Our Work
         </h1>
