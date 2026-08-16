@@ -14,8 +14,7 @@ export default async function AdminMaterialsPage() {
 
       <form
         action={addMaterial}
-        className="border border-gray-200 rounded-xl p-6 mb-10 space-y-4"
-      >
+        className="border border-gray-200 rounded-xl p-6 mb-10 space-y-4 bg-gray-50/50"      >
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
             Name *
