@@ -1,6 +1,7 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
+import { redirect } from "next/navigation";
 
 export async function sendMessage(formData: FormData) {
   const name = formData.get("name") as string;
@@ -9,7 +10,7 @@ export async function sendMessage(formData: FormData) {
   const content = formData.get("content") as string;
 
   if (!name || !content) {
-    return { success: false, error: "Name and message are required." };
+    throw new Error("Name and message are required.");
   }
 
   await prisma.message.create({
@@ -21,5 +22,5 @@ export async function sendMessage(formData: FormData) {
     },
   });
 
-  return { success: true };
+  redirect("/contact?success=true");
 }
