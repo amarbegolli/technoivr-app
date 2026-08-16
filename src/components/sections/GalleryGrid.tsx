@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 type Photo = {
   id: string;
@@ -22,11 +23,12 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
             className="rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg hover:border-primary/30 transition-all group cursor-pointer"
           >
             <div className="relative overflow-hidden">
-              <img
+              <Image
                 src={photo.url}
                 alt={photo.caption ?? "Project photo"}
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               <span className="absolute top-3 left-3 bg-accent text-white text-xs font-medium px-3 py-1 rounded-full">
                 {photo.category.replace("_", " ")}
               </span>
@@ -51,12 +53,14 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
           >
             ✕
           </button>
-          <img
+            <Image
             src={selected.url}
             alt={selected.caption ?? "Project photo"}
-            className="max-w-full max-h-[85vh] object-contain rounded-lg"
+            width={1200}
+            height={800}
+            className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
-          />
+            />
           {selected.caption && (
             <p className="absolute bottom-6 text-white text-sm bg-black/50 px-4 py-2 rounded-lg">
               {selected.caption}
