@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { uploadPhoto, deletePhoto } from "@/actions/photos";
+import Image from "next/image";
 
 export default async function AdminPhotosPage() {
   const photos = await prisma.photo.findMany({
@@ -72,10 +73,12 @@ export default async function AdminPhotosPage() {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {photos.map((photo) => (
           <div key={photo.id} className="relative group">
-            <img
-              src={photo.url}
-              alt={photo.caption ?? ""}
-              className="w-full h-40 object-cover rounded-lg"
+            <Image
+            src={photo.url}
+            alt={photo.caption ?? ""}
+            width={300}
+            height={160}
+            className="w-full h-40 object-cover rounded-lg"
             />
             <form
               action={deletePhoto.bind(null, photo.id, photo.url)}

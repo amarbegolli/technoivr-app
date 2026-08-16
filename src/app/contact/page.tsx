@@ -9,7 +9,7 @@ export default function ContactPage() {
           Get in Touch
         </h1>
         <p className="text-gray-600 max-w-xl mx-auto">
-          Reach out directly, or send us a message and we&apos;ll get back to yoxu.
+          Reach out directly, or send us a message and we&apos;ll get back to you.
         </p>
       </div>
 
