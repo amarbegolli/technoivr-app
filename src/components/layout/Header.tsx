@@ -9,8 +9,8 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="TechnoIVR Logo"
-            width={48}
-            height={48}
+            width={64}
+            height={64}
             className="object-contain"
           />
           <span className="font-bold text-xl text-gray-900">

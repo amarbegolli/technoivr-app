@@ -20,14 +20,15 @@ export default async function ServicesPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {services.map((service) => (
           <div
-            key={service.id}
-            className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition"
-          >
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">
-              {service.title}
-            </h2>
-            <p className="text-gray-600">{service.description}</p>
-          </div>
+        key={service.id}
+        className="border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all bg-white"
+      >
+        <div className="w-10 h-1 bg-accent rounded-full mb-4" />
+        <h2 className="text-xl font-semibold text-primary mb-2">
+          {service.title}
+        </h2>
+        <p className="text-gray-600">{service.description}</p>
+      </div>
         ))}
       </div>
     </section>
