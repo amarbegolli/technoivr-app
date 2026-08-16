@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
+export const revalidate = 3600;
+
 export default async function MaterialsPage() {
   const materials = await prisma.material.findMany({
     orderBy: { order: "asc" },

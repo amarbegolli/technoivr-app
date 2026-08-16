@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import GalleryGrid from "@/components/sections/GalleryGrid";
 
+export const revalidate = 300;
+
 export default async function GalleryPage() {
   const photos = await prisma.photo.findMany({
     orderBy: { order: "asc" },
