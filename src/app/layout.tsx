@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TechnoIVR — Professional Waterproofing Services",
+  title: "TechnoIVR",
   description:
     "PVC membrane waterproofing, styrofoam insulation, spacer tiles, and gravel finishing in Kosovo.",
 };

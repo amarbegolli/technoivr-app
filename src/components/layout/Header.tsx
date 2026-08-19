@@ -31,16 +31,16 @@ export default function Header() {
           <Link href="/materials" className="text-gray-700 hover:text-primary transition">
             Materials
           </Link>
-          <Link href="/contact" className="text-gray-700 hover:text-primary transition">
+          {/* <Link href="/contact" className="text-gray-700 hover:text-primary transition">
             Contact
-          </Link>
+          </Link> */}
         </nav>
 
         <Link
           href="/contact"
           className="bg-primary text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary-light transition"
         >
-          Contact Us
+          Na kontaktoni
         </Link>
       </div>
     </header>
