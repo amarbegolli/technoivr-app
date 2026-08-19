@@ -8,8 +8,7 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-bold text-lg mb-3">TechnoIVR</h3>
           <p className="text-sm leading-relaxed">
-            Professional waterproofing and insulation services — PVC membrane,
-            styrofoam insulation, spacer tiles, and gravel finishing.
+            Shërbime profesionale hidroizolimi dhe izolimi — membranë PVC, izolim stiropori, pllaka distancuese dhe përfundim zhavorri.
           </p>
         </div>
 
