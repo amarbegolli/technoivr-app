@@ -1,8 +1,11 @@
 import { prisma } from "@/lib/prisma";
-import { requireAdmin } from "@/lib/admin";
+import { isAdmin } from "@/lib/admin";
+import { redirect } from "next/navigation";
 
 export default async function AdminMessagesPage() {
-  await requireAdmin();
+  if (!(await isAdmin())) {
+    redirect("/admin/access-denied");
+  }
 
   const messages = await prisma.message.findMany({
     orderBy: { createdAt: "desc" },
