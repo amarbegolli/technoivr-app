@@ -1,6 +1,9 @@
 import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/admin";
 
 export default async function AdminMessagesPage() {
+  await requireAdmin();
+
   const messages = await prisma.message.findMany({
     orderBy: { createdAt: "desc" },
   });

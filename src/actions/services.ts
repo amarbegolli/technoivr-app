@@ -1,9 +1,12 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/admin";
 import { revalidatePath } from "next/cache";
 
 export async function addService(formData: FormData) {
+  await requireAdmin();
+
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
 
@@ -20,6 +23,8 @@ export async function addService(formData: FormData) {
 }
 
 export async function deleteService(serviceId: string) {
+  await requireAdmin();
+
   await prisma.service.delete({
     where: { id: serviceId },
   });

@@ -1,7 +1,10 @@
 import { prisma } from "@/lib/prisma";
 import { addService, deleteService } from "@/actions/services";
+import { requireAdmin } from "@/lib/admin";
 
 export default async function AdminServicesPage() {
+  await requireAdmin();
+
   const services = await prisma.service.findMany({
     orderBy: { order: "asc" },
   });
