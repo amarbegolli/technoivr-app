@@ -1,7 +1,10 @@
 import { prisma } from "@/lib/prisma";
 import { addMaterial, deleteMaterial } from "@/actions/materials";
+import { requireAdmin } from "@/lib/admin";
 
 export default async function AdminMaterialsPage() {
+  await requireAdmin();
+
   const materials = await prisma.material.findMany({
     orderBy: { order: "asc" },
   });

@@ -1,9 +1,12 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/admin";
 import { revalidatePath } from "next/cache";
 
 export async function addMaterial(formData: FormData) {
+  await requireAdmin();
+
   const name = formData.get("name") as string;
   const brand = formData.get("brand") as string;
   const description = formData.get("description") as string;
@@ -25,6 +28,8 @@ export async function addMaterial(formData: FormData) {
 }
 
 export async function deleteMaterial(materialId: string) {
+  await requireAdmin();
+
   await prisma.material.delete({
     where: { id: materialId },
   });

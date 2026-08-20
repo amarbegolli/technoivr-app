@@ -1,8 +1,11 @@
 import { prisma } from "@/lib/prisma";
 import { uploadPhoto, deletePhoto } from "@/actions/photos";
 import Image from "next/image";
+import { requireAdmin } from "@/lib/admin";
 
 export default async function AdminPhotosPage() {
+  await requireAdmin();
+
   const photos = await prisma.photo.findMany({
     orderBy: { order: "asc" },
   });
@@ -81,7 +84,7 @@ export default async function AdminPhotosPage() {
             className="w-full h-40 object-cover rounded-lg"
             />
             <form
-              action={deletePhoto.bind(null, photo.id, photo.url)}
+              action={deletePhoto.bind(null, photo.id)}
               className="absolute top-2 right-2"
             >
               <button
