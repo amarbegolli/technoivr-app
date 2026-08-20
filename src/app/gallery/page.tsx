@@ -26,8 +26,8 @@ export default async function GalleryPage({
   const totalPages = Math.ceil(totalCount / PAGE_SIZE);
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-20">
-      <div className="text-center mb-14 bg-gradient-to-b from-blue-100 to-white -mx-4 px-4 pt-10 pb-6 rounded-b-2xl">
+    <section className="max-w-6xl mx-auto px-4 py-12 sm:py-16 md:py-20">
+      <div className="text-center mb-10 sm:mb-14 bg-gradient-to-b from-blue-100 to-white -mx-4 px-4 pt-8 sm:pt-10 pb-6 rounded-b-2xl">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           Projektet e realizuara
         </h1>
@@ -42,7 +42,7 @@ export default async function GalleryPage({
       )}
 
       {totalPages > 1 && (
-        <div className="flex justify-center items-center gap-2 mt-12">
+        <div className="flex flex-wrap justify-center items-center gap-2 mt-10 sm:mt-12">
           {currentPage > 1 && (
             <Link
               href={`/gallery?page=${currentPage - 1}`}
