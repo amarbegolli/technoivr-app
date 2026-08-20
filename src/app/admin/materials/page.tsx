@@ -1,9 +1,12 @@
 import { prisma } from "@/lib/prisma";
 import { addMaterial, deleteMaterial } from "@/actions/materials";
-import { requireAdmin } from "@/lib/admin";
+import { isAdmin } from "@/lib/admin";
+import { redirect } from "next/navigation";
 
 export default async function AdminMaterialsPage() {
-  await requireAdmin();
+  if (!(await isAdmin())) {
+    redirect("/admin/access-denied");
+  }
 
   const materials = await prisma.material.findMany({
     orderBy: { order: "asc" },

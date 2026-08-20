@@ -9,13 +9,15 @@ function getAdminUserIds() {
     .filter(Boolean);
 }
 
-export async function requireAdmin() {
+export async function isAdmin() {
   const { userId } = await auth();
   const adminUserIds = getAdminUserIds();
 
-  if (!userId || !adminUserIds.includes(userId)) {
+  return Boolean(userId && adminUserIds.includes(userId));
+}
+
+export async function requireAdmin() {
+  if (!(await isAdmin())) {
     throw new Error("Unauthorized");
   }
-
-  return userId;
 }

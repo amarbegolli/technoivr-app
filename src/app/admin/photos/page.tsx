@@ -1,10 +1,13 @@
 import { prisma } from "@/lib/prisma";
 import { uploadPhoto, deletePhoto } from "@/actions/photos";
 import Image from "next/image";
-import { requireAdmin } from "@/lib/admin";
+import { isAdmin } from "@/lib/admin";
+import { redirect } from "next/navigation";
 
 export default async function AdminPhotosPage() {
-  await requireAdmin();
+  if (!(await isAdmin())) {
+    redirect("/admin/access-denied");
+  }
 
   const photos = await prisma.photo.findMany({
     orderBy: { order: "asc" },

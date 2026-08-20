@@ -1,9 +1,12 @@
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { requireAdmin } from "@/lib/admin";
+import { isAdmin } from "@/lib/admin";
+import { redirect } from "next/navigation";
 
 export default async function AdminDashboard() {
-  await requireAdmin();
+  if (!(await isAdmin())) {
+    redirect("/admin/access-denied");
+  }
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">

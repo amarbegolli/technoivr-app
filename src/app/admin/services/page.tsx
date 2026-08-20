@@ -1,9 +1,12 @@
 import { prisma } from "@/lib/prisma";
 import { addService, deleteService } from "@/actions/services";
-import { requireAdmin } from "@/lib/admin";
+import { isAdmin } from "@/lib/admin";
+import { redirect } from "next/navigation";
 
 export default async function AdminServicesPage() {
-  await requireAdmin();
+  if (!(await isAdmin())) {
+    redirect("/admin/access-denied");
+  }
 
   const services = await prisma.service.findMany({
     orderBy: { order: "asc" },
