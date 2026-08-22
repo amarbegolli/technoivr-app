@@ -31,7 +31,7 @@ export default async function ServicesPage({
           Sherbimet e ofruara
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Zgjidhje të plota hidroizolim, termoizolim dhe riparimi nga instalimi i membranës deri në përfundimin përfundimtar.
+          Zgjidhje të plota hidroizolimi, termoizolimi dhe riparimi nga instalimi i membranës deri në përfundim.
         </p>
       </div>
 

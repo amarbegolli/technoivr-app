@@ -21,8 +21,8 @@ export default async function AdminDashboard() {
           className="border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all bg-white"
         >
           <div className="w-8 h-1 bg-accent rounded-full mb-3" />
-          <h2 className="font-semibold text-primary mb-1">Messages</h2>
-          <p className="text-sm text-gray-600">View contact form submissions</p>
+          <h2 className="font-semibold text-primary mb-1">Mesazhet</h2>
+          <p className="text-sm text-gray-600">Shiko mesazhet e dërguara nga klientët.</p>
         </Link>
 
         <Link
@@ -30,8 +30,8 @@ export default async function AdminDashboard() {
           className="border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all bg-white"
         >
           <div className="w-8 h-1 bg-accent rounded-full mb-3" />
-          <h2 className="font-semibold text-primary mb-1">Photos</h2>
-          <p className="text-sm text-gray-600">Manage gallery photos</p>
+          <h2 className="font-semibold text-primary mb-1">Fotot</h2>
+          <p className="text-sm text-gray-600">Menaxhimi i fotove.</p>
         </Link>
 
         <Link
@@ -39,8 +39,8 @@ export default async function AdminDashboard() {
           className="border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all bg-white"
         >
           <div className="w-8 h-1 bg-accent rounded-full mb-3" />
-          <h2 className="font-semibold text-primary mb-1">Services</h2>
-          <p className="text-sm text-gray-600">Manage service listings</p>
+          <h2 className="font-semibold text-primary mb-1">Shërbimet</h2>
+          <p className="text-sm text-gray-600">Menaxhimi dhe kontrolli i shërbimeve të ofruara.</p>
         </Link>
 
         <Link
@@ -48,8 +48,8 @@ export default async function AdminDashboard() {
           className="border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all bg-white"
         >
           <div className="w-8 h-1 bg-accent rounded-full mb-3" />
-          <h2 className="font-semibold text-primary mb-1">Materials</h2>
-          <p className="text-sm text-gray-600">Manage materials list</p>
+          <h2 className="font-semibold text-primary mb-1">Materialet</h2>
+          <p className="text-sm text-gray-600">Menaxhimi i materialeve të përdorura nga ne.</p>
         </Link>
       </div>
     </div>

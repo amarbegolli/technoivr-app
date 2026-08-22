@@ -32,7 +32,7 @@ export default async function GalleryPage({
           Projektet e realizuara
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-        Një vështrim mbi projektet tona të përfunduara të hidroizolimit dhe izolimit.</p>
+        Një vështrim mbi projektet tona të përfunduara me sukses.</p>
       </div>
 
       <GalleryGrid photos={photos} />

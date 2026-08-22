@@ -1,5 +1,5 @@
 import { sendMessage } from "@/actions/sendMessage";
-import { FaWhatsapp, FaViber, FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaWhatsapp, FaViber, FaPhone, FaEnvelope, FaFacebook } from "react-icons/fa";
 
 export default function ContactPage() {
   return (
@@ -13,7 +13,7 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-16">
+      <div className="grid grid-cols-2 md:grid-cols- gap-3 sm:gap-4 mb-10 sm:mb-16">
         <a href="tel:+38344474170" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-primary/30 hover:bg-primary/5 transition-all">
           <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
             <FaPhone size={18} />
@@ -39,6 +39,12 @@ export default function ContactPage() {
           <span className="text-sm font-medium text-gray-700">Email</span>
         </a>
       </div>
+         <a href="https://www.facebook.com/profile.php?id=100086445398730" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-[#1877F2]/30 hover:bg-[#1877F2]/5 transition-all">
+          <span className="w-10 h-10 rounded-full bg-[#1877F2]/10 flex items-center justify-center text-[#1877F2]">
+            <FaFacebook size={20} />
+          </span>
+          <span className="text-sm font-medium text-gray-700">Facebook</span>
+        </a>
 
       <form action={sendMessage} className="space-y-5 max-w-xl mx-auto">
         <div>
