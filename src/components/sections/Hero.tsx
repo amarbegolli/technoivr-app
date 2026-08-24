@@ -12,16 +12,16 @@ export default function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <Link
-            href="/contact"
-            className="bg-accent text-white px-8 py-3.5 rounded-lg font-medium hover:bg-accent-dark transition"
-          >
-            Na kontaktoni
-          </Link>
-          <Link
             href="/gallery"
             className="border border-primary text-primary px-8 py-3.5 rounded-lg font-medium hover:bg-primary/5 transition"
           >
             Njihuni me projektet tona
+          </Link>
+          <Link
+            href="/contact"
+            className="bg-accent text-white px-8 py-3.5 rounded-lg font-medium hover:bg-accent-dark transition"
+          >
+            Na kontaktoni
           </Link>
         </div>
       </div>
