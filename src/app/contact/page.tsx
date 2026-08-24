@@ -32,7 +32,12 @@ export default function ContactPage() {
           </span>
           <span className="text-sm font-medium text-gray-700">Viber</span>
         </a>
-        <a href="mailto:technoivr9@gmail.com" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-accent/30 hover:bg-accent/5 transition-all">
+        <a
+          href="https://mail.google.com/mail/?view=cm&to=technoivr9@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-accent/30 hover:bg-accent/5 transition-all"
+        >
           <span className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
             <FaEnvelope size={18} />
           </span>

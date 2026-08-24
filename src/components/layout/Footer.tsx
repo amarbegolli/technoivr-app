@@ -31,7 +31,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <FaEnvelope className="text-primary-light" size={14} />
-              info@technoivr.com
+              technoivr9@gmail.com
             </li>
             <li className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-primary-light" size={14} />
