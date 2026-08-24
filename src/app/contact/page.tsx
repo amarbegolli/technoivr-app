@@ -1,7 +1,15 @@
 import { sendMessage } from "@/actions/sendMessage";
-import { FaWhatsapp, FaViber, FaPhone, FaEnvelope, FaFacebook } from "react-icons/fa";
+import EmailContactLink from "@/components/EmailContactLink";
+import { FaWhatsapp, FaViber, FaPhone, FaFacebook } from "react-icons/fa";
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ success?: string }>;
+}) {
+  const { success } = await searchParams;
+  const messageSent = success === "true";
+
   return (
     <section className="max-w-4xl mx-auto px-4 py-12 sm:py-16 md:py-20">
       <div className="text-center mb-10 sm:mb-14 bg-gradient-to-b from-blue-100 to-white -mx-4 px-4 pt-8 sm:pt-10 pb-6 rounded-b-2xl">
@@ -13,7 +21,16 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols- gap-3 sm:gap-4 mb-10 sm:mb-16">
+      {messageSent && (
+        <div
+          role="status"
+          className="mb-8 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-center text-sm font-medium text-green-800"
+        >
+          Faleminderit! Mesazhi juaj u dërgua me sukses. Do t&apos;ju kontaktojmë së shpejti.
+        </div>
+      )}
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-16">
         <a href="tel:+38344474170" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-primary/30 hover:bg-primary/5 transition-all">
           <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
             <FaPhone size={18} />
@@ -32,26 +49,17 @@ export default function ContactPage() {
           </span>
           <span className="text-sm font-medium text-gray-700">Viber</span>
         </a>
-        <a
-          href="https://mail.google.com/mail/?view=cm&to=technoivr9@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-accent/30 hover:bg-accent/5 transition-all"
-        >
-          <span className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-            <FaEnvelope size={18} />
-          </span>
-          <span className="text-sm font-medium text-gray-700">Email</span>
-        </a>
-      </div>
-         <a href="https://www.facebook.com/profile.php?id=100086445398730" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-[#1877F2]/30 hover:bg-[#1877F2]/5 transition-all">
+        <EmailContactLink />
+        <a href="https://www.facebook.com/profile.php?id=100086445398730" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-[#1877F2]/30 hover:bg-[#1877F2]/5 transition-all">
           <span className="w-10 h-10 rounded-full bg-[#1877F2]/10 flex items-center justify-center text-[#1877F2]">
             <FaFacebook size={20} />
           </span>
           <span className="text-sm font-medium text-gray-700">Facebook</span>
         </a>
+      </div>
 
       <form action={sendMessage} className="space-y-5 max-w-xl mx-auto">
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
             Name *

@@ -17,10 +17,12 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {photos.map((photo) => (
-          <div
+          <button
+            type="button"
             key={photo.id}
             onClick={() => setSelected(photo)}
-            className="rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg hover:border-primary/30 transition-all group cursor-pointer"
+            className="rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg hover:border-primary/30 transition-all group cursor-pointer text-left"
+            aria-label={`View ${photo.caption ?? "project photo"}`}
           >
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
@@ -39,7 +41,7 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
                 <p className="text-gray-700 text-sm">{photo.caption}</p>
               </div>
             )}
-          </div>
+          </button>
         ))}
       </div>
 
@@ -47,9 +49,13 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
         <div
           onClick={() => setSelected(null)}
           className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-3 sm:p-4 cursor-pointer"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Photo preview"
         >
           <button
             onClick={() => setSelected(null)}
+            aria-label="Close photo preview"
             className="absolute top-3 right-3 sm:top-6 sm:right-6 w-11 h-11 text-white text-3xl font-light hover:opacity-70"
           >
             ✕

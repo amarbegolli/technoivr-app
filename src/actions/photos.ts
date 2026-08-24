@@ -90,13 +90,18 @@ export async function uploadPhoto(formData: FormData) {
     .from("photos")
     .getPublicUrl(fileName);
 
-  await prisma.photo.create({
-    data: {
-      url: urlData.publicUrl,
-      category: photoCategory,
-      caption: typeof caption === "string" ? caption.trim() || null : null,
-    },
-  });
+  try {
+    await prisma.photo.create({
+      data: {
+        url: urlData.publicUrl,
+        category: photoCategory,
+        caption: typeof caption === "string" ? caption.trim() || null : null,
+      },
+    });
+  } catch (error) {
+    await supabase.storage.from("photos").remove([fileName]);
+    throw error;
+  }
 
   revalidatePath("/admin/photos");
   revalidatePath("/gallery");
@@ -121,17 +126,17 @@ export async function deletePhoto(photoId: string) {
     throw new Error("Invalid photo storage path.");
   }
 
+  await prisma.photo.delete({
+    where: { id: photoId },
+  });
+
   const { error: removeError } = await supabase.storage
     .from("photos")
     .remove([decodeURIComponent(storagePath)]);
 
   if (removeError) {
-    throw new Error(`Delete failed: ${removeError.message}`);
+    console.error(`Photo record deleted but storage cleanup failed: ${removeError.message}`);
   }
-
-  await prisma.photo.delete({
-    where: { id: photoId },
-  });
 
   revalidatePath("/admin/photos");
   revalidatePath("/gallery");

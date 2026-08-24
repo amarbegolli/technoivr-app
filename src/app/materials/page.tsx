@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import { getPageNumber } from "@/lib/pagination";
 
 export const revalidate = 3600;
 
@@ -11,7 +12,7 @@ export default async function MaterialsPage({
   searchParams: Promise<{ page?: string }>;
 }) {
   const params = await searchParams;
-  const currentPage = Math.max(1, parseInt(params.page ?? "1", 10));
+  const currentPage = getPageNumber(params.page);
 
   const [materials, totalCount] = await Promise.all([
     prisma.material.findMany({

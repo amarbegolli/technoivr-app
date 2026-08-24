@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import GalleryGrid from "@/components/sections/GalleryGrid";
+import { getPageNumber } from "@/lib/pagination";
 import Link from "next/link";
 
 export const revalidate = 300;
@@ -12,7 +13,7 @@ export default async function GalleryPage({
   searchParams: Promise<{ page?: string }>;
 }) {
   const params = await searchParams;
-  const currentPage = Math.max(1, parseInt(params.page ?? "1", 10));
+  const currentPage = getPageNumber(params.page);
 
   const [photos, totalCount] = await Promise.all([
     prisma.photo.findMany({
