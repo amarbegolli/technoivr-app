@@ -1,6 +1,8 @@
 import { sendMessage } from "@/actions/sendMessage";
 import EmailContactLink from "@/components/EmailContactLink";
 import { FaWhatsapp, FaViber, FaPhone, FaFacebook } from "react-icons/fa";
+import TrackedLink from "@/components/sections/TrackedLink";
+import SuccessTracker from "@/components/sections/SuccessTracker";
 
 export default async function ContactPage({
   searchParams,
@@ -27,35 +29,36 @@ export default async function ContactPage({
           className="mb-8 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-center text-sm font-medium text-green-800"
         >
           Faleminderit! Mesazhi juaj u dërgua me sukses. Do t&apos;ju kontaktojmë së shpejti.
+          <SuccessTracker/>
         </div>
       )}
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-16">
-        <a href="tel:+38344474170" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-primary/30 hover:bg-primary/5 transition-all">
+        <TrackedLink href="tel:+38344474170" eventName="contact_click_phone" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-primary/30 hover:bg-primary/5 transition-all">
           <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
             <FaPhone size={18} />
           </span>
           <span className="text-sm font-medium text-gray-700">Phone</span>
-        </a>
-        <a href="https://wa.me/38344474170" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-[#25D366]/30 hover:bg-[#25D366]/5 transition-all">
+        </TrackedLink>
+        <TrackedLink href="https://wa.me/38344474170" eventName="contact_click_whatsapp" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-[#25D366]/30 hover:bg-[#25D366]/5 transition-all">
           <span className="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366]">
             <FaWhatsapp size={22} />
           </span>
           <span className="text-sm font-medium text-gray-700">WhatsApp</span>
-        </a>
-        <a href="viber://chat?number=%2B38344474170" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-[#7360F2]/30 hover:bg-[#7360F2]/5 transition-all">
+        </TrackedLink>
+        <TrackedLink href="viber://chat?number=%2B38344474170" eventName="contact_click_viber" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-[#7360F2]/30 hover:bg-[#7360F2]/5 transition-all">
           <span className="w-10 h-10 rounded-full bg-[#7360F2]/10 flex items-center justify-center text-[#7360F2]">
             <FaViber size={22} />
           </span>
           <span className="text-sm font-medium text-gray-700">Viber</span>
-        </a>
+        </TrackedLink>
         <EmailContactLink />
-        <a href="https://www.facebook.com/profile.php?id=100086445398730" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-[#1877F2]/30 hover:bg-[#1877F2]/5 transition-all">
+        <TrackedLink href="https://www.facebook.com/profile.php?id=100086445398730" eventName="contact_click_facebook" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-[#1877F2]/30 hover:bg-[#1877F2]/5 transition-all">
           <span className="w-10 h-10 rounded-full bg-[#1877F2]/10 flex items-center justify-center text-[#1877F2]">
             <FaFacebook size={20} />
           </span>
           <span className="text-sm font-medium text-gray-700">Facebook</span>
-        </a>
+        </TrackedLink>
       </div>
 
       <form action={sendMessage} className="space-y-5 max-w-xl mx-auto">
@@ -112,7 +115,7 @@ export default async function ContactPage({
 
         <button
           type="submit"
-            className="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-primary-light transition"        >
+          className="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-primary-light transition"        >
           Send Message
         </button>
       </form>

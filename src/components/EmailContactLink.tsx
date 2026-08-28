@@ -1,5 +1,6 @@
 "use client";
 
+import TrackedLink from "@/components/sections/TrackedLink";
 import { FaEnvelope } from "react-icons/fa";
 
 const email = "technoivr9@gmail.com";
@@ -17,8 +18,9 @@ export default function EmailContactLink() {
   }
 
   return (
-    <a
+    <TrackedLink
       href={gmailComposeUrl}
+      eventName="contact_click_email"
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
@@ -28,6 +30,6 @@ export default function EmailContactLink() {
         <FaEnvelope size={18} />
       </span>
       <span className="text-sm font-medium text-gray-700">Email</span>
-    </a>
+    </TrackedLink>
   );
 }
