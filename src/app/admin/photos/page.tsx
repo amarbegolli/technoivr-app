@@ -92,7 +92,7 @@ export default async function AdminPhotosPage() {
             >
               <button
                 type="submit"
-                className="bg-red-600 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition"
+                   className="bg-red-600 text-white text-xs px-3 py-1.5 rounded-lg opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition"
               >
                 Delete
               </button>
