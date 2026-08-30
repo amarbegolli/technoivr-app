@@ -53,33 +53,58 @@ export default function Header() {
           aria-controls="mobile-navigation"
           onClick={() => setIsMenuOpen((open) => !open)}
         >
-          <span className="text-2xl leading-none" aria-hidden="true">{isMenuOpen ? "×" : "☰"}</span>
+          <span className="text-2xl leading-none" aria-hidden="true">☰</span>
         </button>
       </div>
 
+      {/* Overlay - dark backdrop */}
       {isMenuOpen && (
-        <nav id="mobile-navigation" className="md:hidden border-t border-gray-100 bg-white px-4 py-3 shadow-lg">
-          <div className="max-w-6xl mx-auto grid gap-1">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="rounded-lg px-4 py-3 text-gray-700 font-medium hover:bg-primary/5 hover:text-primary"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="sm:hidden mt-1 rounded-lg bg-primary px-4 py-3 text-center font-medium text-white"
-            >
-              Na kontaktoni
-            </Link>
-          </div>
-        </nav>
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        />
       )}
+
+      {/* Sidebar - slides from left */}
+      <nav
+        id="mobile-navigation"
+        className={`fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-xl transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between px-4 h-16 border-b border-gray-100">
+          <span className="font-bold text-lg text-gray-900">Menu</span>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center w-11 h-11 rounded-lg text-primary hover:bg-primary/5"
+            aria-label="Mbyll menunë"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <span className="text-2xl leading-none" aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div className="grid gap-1 p-4">
+          {navigation.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="rounded-lg px-4 py-3 text-gray-700 font-medium hover:bg-primary/5 hover:text-primary transition"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            onClick={() => setIsMenuOpen(false)}
+            className="mt-2 rounded-lg bg-primary px-4 py-3 text-center font-medium text-white hover:bg-primary-light transition"
+          >
+            Na kontaktoni
+          </Link>
+        </div>
+      </nav>
     </header>
   );
 }
