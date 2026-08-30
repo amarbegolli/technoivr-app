@@ -20,7 +20,8 @@ export default async function AdminMaterialsPage() {
 
       <form
         action={addMaterial}
-        className="border border-gray-200 rounded-xl p-6 mb-10 space-y-4 bg-gray-50/50"      >
+        className="border border-gray-200 rounded-xl p-6 mb-10 space-y-4 bg-gray-50/50"
+      >
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
             Name *
@@ -58,6 +59,19 @@ export default async function AdminMaterialsPage() {
           />
         </div>
 
+        <div>
+          <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">
+            Image
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5"
+          />
+        </div>
+
         <button
           type="submit"
           className="bg-primary text-white px-6 py-2.5 rounded-lg font-medium hover:bg-primary-light transition"
@@ -70,9 +84,16 @@ export default async function AdminMaterialsPage() {
         {materials.map((material) => (
           <div
             key={material.id}
-            className="border border-gray-200 rounded-xl p-5 flex items-start justify-between gap-4"
+            className="border border-gray-200 rounded-xl p-5 flex items-start gap-4"
           >
-            <div>
+            {material.imageUrl && (
+              <img
+                src={material.imageUrl}
+                alt={material.name}
+                className="w-16 h-16 object-cover rounded-lg shrink-0"
+              />
+            )}
+            <div className="flex-1">
               <h2 className="font-semibold text-gray-900">
                 {material.name}
                 {material.brand && (

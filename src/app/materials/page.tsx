@@ -40,8 +40,15 @@ export default async function MaterialsPage({
         {materials.map((material) => (
           <div
             key={material.id}
-            className="border border-gray-200 rounded-xl p-5 sm:p-6 hover:shadow-lg hover:border-primary/30 transition-all bg-white"
+            className="border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all bg-white"
           >
+            {material.imageUrl && (
+              <img
+                src={material.imageUrl}
+                alt={material.name}
+                className="w-full h-40 object-cover rounded-lg mb-4"
+              />
+            )}
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-xl font-semibold text-primary">
                 {material.name}
