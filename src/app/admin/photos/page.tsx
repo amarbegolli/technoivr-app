@@ -48,10 +48,10 @@ export default async function AdminPhotosPage() {
             required
             className="w-full border border-gray-300 rounded-lg px-4 py-2.5"
           >
-            <option value="HIDROIZOLIM">Waterproofing</option>
-            <option value="STIRODUR">Insulation</option>
-            <option value="PLLAKA_DISTANCERA">Spacer Tiles</option>
-            <option value="ZHAVOR">Gravel</option>
+            <option value="HIDROIZOLIM">Hidroizolim</option>
+            <option value="STIRODUR">Stirodur</option>
+            <option value="PLLAKA_DISTANCERA">Pllaka me distancera</option>
+            <option value="ZHAVOR">Zhavor</option>
           </select>
         </div>
 

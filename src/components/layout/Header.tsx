@@ -32,7 +32,7 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center gap-8">
           {navigation.map((item) => (
-            <Link key={item.href} href={item.href} className="text-gray-700 hover:text-primary transition">
+            <Link key={item.href} href={item.href} className="text-gray-700 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full transition">
               {item.label}
             </Link>
           ))}
