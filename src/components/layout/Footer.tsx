@@ -41,8 +41,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-gray-800 py-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} TechnoIVR. All rights reserved.
+      <div className="border-t border-gray-800 py-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-sm text-gray-500">
+        <span>© {new Date().getFullYear()} TechnoIVR. All rights reserved.</span>
+        <Link href="/admin" className="text-gray-600 hover:text-gray-400 transition">
+          Login
+        </Link>
       </div>
     </footer>
   );
