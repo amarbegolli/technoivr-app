@@ -7,9 +7,11 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <h3 className="text-white font-bold text-lg mb-3">TechnoIVR</h3>
-          <p className="text-sm leading-relaxed">
-            Shërbime profesionale hidroizolimi dhe izolimi — membranë PVC, izolim stiropori, pllaka distancuese dhe përfundim zhavorri.
-          </p>
+          <div className="text-sm leading-relaxed">
+            <p>Techno IVR - Ku inovacioni takohet me zgjidhjen</p>
+            <p>• Punime profesionale për çati të rrafshta dhe terasa</p> 
+            <p>•	Sisteme moderne për hidroizolim dhe termoizolim</p>
+             <p>•	Zgjidhje të plota për pishina dhe sipërfaqe të ekspozuara ndaj ujit</p></div>
         </div>
 
         <div>
