@@ -18,7 +18,7 @@ export default function Hero() {
             href="/gallery"
             className="border border-primary text-primary px-8 py-3.5 rounded-lg font-medium hover:bg-primary/5 transition"
           >
-            Njihuni me projektet tona
+            Shihni projektet tona →
           </Link>
           <Link
             href="/contact"
