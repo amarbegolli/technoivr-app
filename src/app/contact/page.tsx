@@ -1,6 +1,6 @@
 import { sendMessage } from "@/actions/sendMessage";
 import EmailContactLink from "@/components/EmailContactLink";
-import { FaWhatsapp, FaViber, FaPhone, FaFacebook } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaFacebook } from "react-icons/fa";
 import TrackedLink from "@/components/sections/TrackedLink";
 import SuccessTracker from "@/components/sections/SuccessTracker";
 
@@ -10,7 +10,7 @@ export default async function ContactPage({
   searchParams: Promise<{ success?: string }>;
 }) {
   const { success } = await searchParams;
-  const messageSent = success === "true";
+  const messageSent = success === "true"; 
 
   return (
     <section className="max-w-4xl mx-auto px-4 py-12 sm:py-16 md:py-20">
@@ -45,12 +45,6 @@ export default async function ContactPage({
             <FaWhatsapp size={22} />
           </span>
           <span className="text-sm font-medium text-gray-700">WhatsApp</span>
-        </TrackedLink>
-        <TrackedLink href="viber://chat?number=%2B38344474170" eventName="contact_click_viber" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-[#7360F2]/30 hover:bg-[#7360F2]/5 transition-all">
-          <span className="w-10 h-10 rounded-full bg-[#7360F2]/10 flex items-center justify-center text-[#7360F2]">
-            <FaViber size={22} />
-          </span>
-          <span className="text-sm font-medium text-gray-700">Viber</span>
         </TrackedLink>
         <EmailContactLink />
         <TrackedLink href="https://www.facebook.com/profile.php?id=100086445398730" eventName="contact_click_facebook" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 border border-gray-200 rounded-xl p-3 sm:p-5 hover:shadow-lg hover:border-[#1877F2]/30 hover:bg-[#1877F2]/5 transition-all">
