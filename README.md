@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TechnoIVR — Professional Waterproofing Website
 
-## Getting Started
+A complete business website for waterproofing and insulation services — featuring public pages, a secure admin panel, and analytics integration.
 
-First, run the development server:
+🔗 **Live:** [technoivr.vercel.app](https://technoivr.vercel.app)
+
+## Features
+
+- 🏠 Public pages: Home, Services, Gallery (with lightbox), Materials, Contact
+- 🔐 Secure Admin Panel (Clerk authentication, protected routes and Server Actions)
+- 📸 Manage photos, services, and materials from the admin panel (direct upload to Supabase Storage)
+- 💬 Contact form with direct links (Phone, WhatsApp, Viber, Email, Facebook)
+- 📊 Google Analytics 4 with conversion tracking (link clicks, form submissions)
+- 📱 Fully responsive design with a mobile sidebar menu
+- ⚡ Optimized performance: ISR caching, next/image optimization, pagination
+- 🤖 AI assistant chat (Gemini) scaffolded in the admin panel (currently inactive, requires billing)
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router) + TypeScript
+- **UI:** React 19 + Tailwind CSS 4
+- **Database:** PostgreSQL (Supabase) + Prisma ORM
+- **Storage:** Supabase Storage
+- **Auth:** Clerk
+- **AI:** Google Gemini API (`@google/genai`)
+- **Analytics:** Google Analytics 4 (`@next/third-parties`)
+- **Deployment:** Vercel
+- **Uptime Monitoring:** UptimeRobot
+
+## Project Structure
+
+prisma/ # Database schema + seed data
+src/
+actions/ # Server Actions (contact form, uploads, CRUD, AI chat)
+app/
+admin/ # Admin panel (protected by Clerk auth)
+services/
+gallery/
+materials/
+contact/
+components/
+layout/ # Header (with mobile sidebar), Footer
+sections/ # Hero, GalleryGrid, TrackedLink, reusable UI
+lib/ # Prisma client, Supabase client, admin check
+
+## Local Setup
+
+1. Clone the repo and install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Copy `.env.example` to `.env` and fill in your own values (database, Supabase, Clerk, Analytics, Gemini keys):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+   cp .env.example .env
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Push the database schema and seed initial data:
 
-## Learn More
+```bash
+   npx prisma db push
+   npx prisma db seed
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Start the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+   npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Open [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+## Workflow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project follows a standard Git workflow: **Branch → Code → Commit → Push → Pull Request → Review → Merge**. Every push to `main` automatically triggers a deploy on Vercel.
