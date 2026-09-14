@@ -2,7 +2,7 @@
 
 A complete business website for waterproofing and insulation services — featuring public pages, a secure admin panel, and analytics integration.
 
-🔗 **Live:** [technoivr.vercel.app](https://technoivr.vercel.app)
+🔗 **Live:** [technoivr.com](https://technoivr.com)
 
 ## Features
 
