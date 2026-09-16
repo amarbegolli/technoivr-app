@@ -35,15 +35,6 @@ export default async function AdminDashboard() {
         </Link>
 
         <Link
-          href="/admin/services"
-          className="border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all bg-white"
-        >
-          <div className="w-8 h-1 bg-accent rounded-full mb-3" />
-          <h2 className="font-semibold text-primary mb-1">Shërbimet</h2>
-          <p className="text-sm text-gray-600">Menaxhimi dhe kontrolli i shërbimeve të ofruara.</p>
-        </Link>
-
-        <Link
           href="/admin/materials"
           className="border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all bg-white"
         >
