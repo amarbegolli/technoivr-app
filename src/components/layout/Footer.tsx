@@ -17,12 +17,11 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-bold text-lg mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/services" className="hover:text-white transition">Shërbimet</Link></li>
             <li><Link href="/gallery" className="hover:text-white transition">Galeria</Link></li>
             <li><Link href="/materials" className="hover:text-white transition">Materialet</Link></li>
             <li><Link href="/contact" className="hover:text-white transition">Kontakti</Link></li>
           </ul>
-        </div>
+        </div>s
  
         <div>
           <h3 className="text-white font-bold text-lg mb-3">Contact</h3>

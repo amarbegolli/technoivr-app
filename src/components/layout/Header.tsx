@@ -9,7 +9,6 @@ export default function Header() {
 
   const navigation = [
     { href: "/", label: "Ballina" },
-    { href: "/services", label: "Shërbimet" },
     { href: "/gallery", label: "Galeria" },
     { href: "/materials", label: "Materialet" },
   ];
