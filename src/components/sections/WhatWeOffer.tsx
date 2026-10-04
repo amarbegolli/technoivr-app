@@ -7,7 +7,7 @@ export default function WhatWeOffer() {
         </h2>
         <p className="text-gray-600 text-lg leading-relaxed">
           TechnoIVR ofron zgjidhje profesionale për hidroizolim me membranë
-          PVC, hidroizolim me membrane mozaik dhe te thjeshte te pishinave dhe izolim termik me Stirodur. Me përvojë të gjatë në terren dhe
+          PVC, hidroizolim me membrane mozaik dhe te thjeshte te pishinave dhe termoizolim. Me përvojë të gjatë në terren dhe
           materiale cilësore, garantojmë punë të qëndrueshme dhe të sigurt
           për çdo objekt — banesa private, ndërtesa komerciale dhe projekte
           industriale.

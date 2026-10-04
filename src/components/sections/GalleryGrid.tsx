@@ -33,7 +33,7 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               <span className="absolute top-3 left-3 bg-accent text-white text-xs font-medium px-3 py-1 rounded-full">
-                {photo.category.replace("_", " ")}
+                {photo.category === "TERMOIZOLIM" ? "Termoizolim" : photo.category.replace("_", " ")}
               </span>
             </div>
             {photo.caption && (

@@ -15,7 +15,7 @@ datasource db {
 
 enum PhotoCategory {
   HIDROIZOLIM
-  STIRODUR
+  TERMOIZOLIM
   PLLAKA_DISTANCERA
   ZHAVOR
 }
