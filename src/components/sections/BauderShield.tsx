@@ -25,9 +25,6 @@ export default function BauderShield() {
         </div>
 
         <div className="text-center lg:text-left pb-8 lg:pb-0">
-          <p className="inline-flex items-center rounded-full bg-accent/10 text-accent px-4 py-1.5 text-sm font-semibold mb-5">
-            HIDROIZOLIM PROFESIONAL
-          </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2942] mb-5">
             Hidroizolim me membrana <span className="text-primary">Bauder</span>
           </h2>
@@ -49,13 +46,7 @@ export default function BauderShield() {
             ))}
           </ul>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-            <Link
-              href="/contact"
-              className="bg-accent text-white px-8 py-3.5 rounded-lg font-medium hover:bg-accent-dark transition text-center"
-            >
-              Na kontaktoni
-            </Link>
+          <div className="flex justify-center lg:justify-start">
             <Link
               href="/gallery"
               className="border-2 border-primary text-primary px-8 py-3.5 rounded-lg font-medium hover:bg-primary/5 transition text-center"
