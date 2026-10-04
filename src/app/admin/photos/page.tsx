@@ -49,7 +49,7 @@ export default async function AdminPhotosPage() {
             className="w-full border border-gray-300 rounded-lg px-4 py-2.5"
           >
             <option value="HIDROIZOLIM">Hidroizolim</option>
-            <option value="STIRODUR">Stirodur</option>
+            <option value="TERMOIZOLIM">Termoizolim</option>
             <option value="PLLAKA_DISTANCERA">Pllaka me distancera</option>
             <option value="ZHAVOR">Zhavor</option>
           </select>
