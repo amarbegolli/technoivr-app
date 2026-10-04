@@ -15,14 +15,24 @@ export default async function GalleryPage({
   const params = await searchParams;
   const currentPage = getPageNumber(params.page);
 
-  const [photos, totalCount] = await Promise.all([
-    prisma.photo.findMany({
-      orderBy: { order: "asc" },
-      skip: (currentPage - 1) * PAGE_SIZE,
-      take: PAGE_SIZE,
-    }),
-    prisma.photo.count(),
-  ]);
+  let photos: Awaited<ReturnType<typeof prisma.photo.findMany>> = [];
+  let totalCount = 0;
+  let isGalleryUnavailable = false;
+
+  try {
+    [photos, totalCount] = await Promise.all([
+      prisma.photo.findMany({
+        orderBy: { order: "asc" },
+        skip: (currentPage - 1) * PAGE_SIZE,
+        take: PAGE_SIZE,
+      }),
+      prisma.photo.count(),
+    ]);
+  } catch (error) {
+    // Keep the public page available if the database is temporarily unreachable.
+    console.error("Unable to load gallery photos:", error);
+    isGalleryUnavailable = true;
+  }
 
   const totalPages = Math.ceil(totalCount / PAGE_SIZE);
 
@@ -36,13 +46,27 @@ export default async function GalleryPage({
         Një vështrim mbi projektet tona të përfunduara me sukses.</p>
       </div>
 
-      <GalleryGrid photos={photos} />
+      {isGalleryUnavailable ? (
+        <div
+          role="alert"
+          className="mx-auto max-w-2xl rounded-xl border border-amber-200 bg-amber-50 px-6 py-5 text-center text-amber-950"
+        >
+          <p className="font-semibold">Galeria është përkohësisht e padisponueshme.</p>
+          <p className="mt-2 text-sm">
+            Ju lutemi provoni përsëri pas pak.
+          </p>
+        </div>
+      ) : (
+        <>
+          <GalleryGrid photos={photos} />
 
-      {photos.length === 0 && (
-        <p className="text-center text-gray-500">No photos yet.</p>
+          {photos.length === 0 && (
+            <p className="text-center text-gray-500">Nuk ka ende foto.</p>
+          )}
+        </>
       )}
 
-      {totalPages > 1 && (
+      {!isGalleryUnavailable && totalPages > 1 && (
         <div className="flex flex-wrap justify-center items-center gap-2 mt-10 sm:mt-12">
           {currentPage > 1 && (
             <Link
